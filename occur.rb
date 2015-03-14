@@ -11,7 +11,7 @@ row_dup = row.dup		# Non-destructive object duplication
 
 # Creates a hash of a all possible company pairs sorted by row
 pair_combinations = {}
-num = 0
+num 			  = 0
 
 row_dup.each do |row|
 	num += 1
@@ -23,31 +23,27 @@ end
 pair_array = pair_combinations.dup 
 pair_array2 = pair_array.dup
 
-cooccurences 	= {}
+cooccurrences 	= {}
 row_counter 	= 0
-
-line = 0
 
 for row in pair_array	# Row of pairs [[Company, Company],[Company, Company]]
 	
 	row_counter += 1
 
 	for pair in pair_array["row_#{row_counter}"] 	# Single Pair [Company, Company]
-				 n = 0
-		row_count2 = 0
+		times 		= 0
+		row_count2  = 0
 
 		for row in pair_array2
 			row_count2 += 1
 			if pair_array["row_#{row_count2}"].include? pair
-				n += 1
+				times += 1
 			end
 		end
-		puts 'Process'
-		line = line + 1
-		puts line
-		cooccurences = {:companies=>pair, :happened=>n}
-		puts cooccurences
+		cooccurrences.store(pair, times)
 	end
-	
-end
-
+end 
+#puts cooccurrences
+those_above_n = cooccurrences.delete_if {|key, value| value < 3}
+#puts those_above_n
+puts cooccurrences
