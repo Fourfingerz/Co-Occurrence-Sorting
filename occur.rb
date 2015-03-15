@@ -26,17 +26,19 @@ end
 # *** ACTION STARTS HERE ***
 # *** 					 ***
 
-# Opens file from terminal, parses and pushes to occurrences array.
+# Checks file arguments in command line, if none, accepts stdin from terminal.
+# HINT: End terminal input with CTRL+D
+input = ARGV[0].nil? ? $< : File.new(ARGV.first,"r")
+
+# Parses and pushes input to occurrences array.
 occurrences, n 	= [],0
-File.open(ARGV.first, "r") do |f|
-  f.each_line do |line|
-    sentence = line.chomp.split(",") 
-   	  # Searches for number N at the beginning of input and sets it to n.
-	  if line.match(/\d/)    
-  	    n = line.to_i
-	  end
-	occurrences.push(sentence)
-  end
+input.each_line do |line|
+  sentence = line.chomp.split(",") 
+   	# Searches for number N at the beginning of input and sets it to n.
+	if line.match(/\d/)    
+  	  n = line.to_i
+	end
+  occurrences.push(sentence)
 end
 
 pair_array = combinations_of(occurrences) 
@@ -67,13 +69,20 @@ pair_array = combinations_of(occurrences)
   end
 ### 
 
-output = check_n_against(cooccurrences, n)
+results = check_n_against(cooccurrences, n)
 
-# Outputs to file of choice, text is joined by comma and ended by a unix newline.
-File.open(ARGV[1], "w+") do |f|
-  for i in output
-	f.puts i.join(",")+"\n"
-  end
+# Inits output array, formats results properly with UNIX newlines.
+output = []
+for i in results
+	output.push(i.join(",")+"\n")
+end
+
+# Standard output as stdout to terminal and writes to file if second filename specified.
+puts output
+if !ARGV[1].nil?
+	File.open(ARGV[1], "w+") do |f|
+	  f.puts output
+	end
 end
 
 # ***					***
