@@ -39,45 +39,43 @@ File.open(ARGV.first, "r") do |f|
   end
 end
 
-# Safeguard against all destructive action
-pair_array = combinations_of(occurrences).dup 
-pair_array2 = pair_array.dup
+pair_array = combinations_of(occurrences) 
 
 # Finds NUMBER OF CO-OCCURRENCES for every possible pair of occurrences.
-	cooccurrences 	= {}
-	row_counter 	= 0
+  cooccurrences 	= {}
+  row_counter 		= 0
 
-	# Row of pairs [[Company, Company],[Company, Company]]
-	for row in pair_array	
-	  row_counter += 1
+  # Row of pairs [[Company, Company],[Company, Company]]
+  for row in pair_array	
+	row_counter += 1
 
-	  # Single Pair [Company, Company]
-	  for pair in pair_array["row_#{row_counter}"]  	
-	    times 		  = 0
-	    single_counter  = 0
+	# Single Pair [Company, Company]
+	for pair in pair_array["row_#{row_counter}"]  	
+	  times 		  = 0
+	  inner_counter  = 0
 
-	  	for row in pair_array2
-		  single_counter += 1
-		  # Ticker for each time pair comes up
-		  if pair_array["row_#{single_counter}"].include? pair 
-			  times += 1
-		  end
+	  for row in pair_array
+		inner_counter += 1
+		# Ticker for each time pair comes up
+		if pair_array["row_#{inner_counter}"].include? pair 
+			times += 1
 		end
-	    # Pushes pair and times co-occurring to cooccurrences array.
-	    cooccurrences.store(pair, times) 
 	  end
+	    # Pushes pair and times co-occurring to cooccurrences array.
+	  cooccurrences.store(pair, times) 
 	end
+  end
 ### 
 
 output = check_n_against(cooccurrences, n)
 
 # Outputs to file of choice, text is joined by comma
-File.open("output.txt", "w+") do |f|
+File.open(ARGV[1], "w+") do |f|
   for i in output
 	f.puts i.join(",")
   end
 end
 
 # ***					***
-# ***  	END OF SCRIPT   ***
+# ***  	END OF ACTION   ***
 # ***					***
