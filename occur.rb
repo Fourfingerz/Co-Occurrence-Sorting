@@ -32,7 +32,8 @@ occurrences, n 	= [],0
 File.open(ARGV.first, "r") do |f|
   f.each_line do |line|
     sentence = line.chomp.split(",") 
-	  if line.match(/\d/)
+   	  # Searches for number N at the beginning of input and sets it to n.
+	  if line.match(/\d/)    
   	    n = line.to_i
 	  end
 	occurrences.push(sentence)
