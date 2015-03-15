@@ -4,8 +4,7 @@
 
 # Creates a hash of a all possible company pairs, generates all possible PAIRS.
 def combinations_of(input)
-  pair_combinations = {}
-  i 			    = 0
+  pair_combinations, i = {},0
     input.each do |row|
       i += 1
       row_number = "row_" + i.to_s
