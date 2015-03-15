@@ -2,9 +2,9 @@
 Administaff Inc,Bed Bath & Beyond Inc,Graybar Electric Company Inc
 Levi Strauss & Co,Lockheed Martin Corporation,Manor Care Inc
 Bed Bath & Beyond Inc,Graybar Electric Company Inc,National Fuel Gas Company
-Levi Strauss & Co,Manor Care Inc,Nvidia Corp,Northwest Airlines Corp,Office Depot Inc
+Levi Strauss & Co,Manor Care Inc,Nvidia Corp,Northwest Airlines Corp,Office Depot Inc,Graybar Electric Company Inc,Office Depot Inc
 Administaff Inc,Nvidia Corp,Office Depot Inc
 Graybar Electric Company Inc,National Fuel Gas Company,Office Depot Inc
-Graybar Electric Company Inc,Pennzoil-Quaker State Company,Peoples Energy Corp
+Graybar Electric Company Inc,Pennzoil-Quaker State Company,Peoples Energy Corp,Graybar Electric Company Inc,Office Depot Inc
 Nvidia Corp,Office Depot Inc,Pennzoil-Quaker State Company
 Bed Bath & Beyond Inc,Graybar Electric Company Inc,Office Depot Inc
