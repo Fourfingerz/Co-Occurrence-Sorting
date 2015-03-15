@@ -69,10 +69,10 @@ pair_array = combinations_of(occurrences)
 
 output = check_n_against(cooccurrences, n)
 
-# Outputs to file of choice, text is joined by comma
+# Outputs to file of choice, text is joined by comma and ended by a unix newline.
 File.open(ARGV[1], "w+") do |f|
   for i in output
-	f.puts i.join(",")
+	f.puts i.join(",")+"\n"
   end
 end
 

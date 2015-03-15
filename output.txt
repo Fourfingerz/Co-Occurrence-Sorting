@@ -1,5 +1,0 @@
-Bed Bath & Beyond Inc,Graybar Electric Company Inc
-Graybar Electric Company Inc,National Fuel Gas Company
-Graybar Electric Company Inc,Office Depot Inc
-Levi Strauss & Co,Manor Care Inc
-Nvidia Corp,Office Depot Inc
