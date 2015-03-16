@@ -55,7 +55,8 @@ pair_array = combinations_of(occurrences)
 	for pair in pair_array["row_#{row_counter}"]  	
 	  times 		  = 0
 	  inner_counter  = 0
-
+	  
+      # Checks PAIR against occurrences against every ROW
 	  for row in pair_array
 		inner_counter += 1
 		# Ticker for each time pair comes up
