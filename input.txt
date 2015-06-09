@@ -1,4 +1,4 @@
-2
+3
 Administaff Inc,Bed Bath & Beyond Inc,Graybar Electric Company Inc
 Levi Strauss & Co,Lockheed Martin Corporation,Manor Care Inc
 Bed Bath & Beyond Inc,Graybar Electric Company Inc,National Fuel Gas Company

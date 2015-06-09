@@ -1,6 +1,6 @@
-# ***					  ***
+# ***					            ***
 # *** HERE LIES FUNCTIONS ***
-# *** 					  ***
+# *** 					          ***
 
 # Creates a hash of all possible company pairs, generates all possible PAIRS.
 def combinations_of(input)
@@ -22,9 +22,9 @@ def check_n_against(input, n)
   return trimmed_pairs
 end	
 
-# ***					 ***
+# ***					           ***
 # *** ACTION STARTS HERE ***
-# *** 					 ***
+# *** 					         ***
 
 # Checks file arguments in command line, if none, accepts stdin from terminal.
 # HINT: End terminal input with CTRL+D
@@ -44,8 +44,7 @@ end
 pair_array = combinations_of(occurrences) 
 
 # Finds NUMBER OF CO-OCCURRENCES for every possible pair of occurrences.
-  cooccurrences 	= {}
-  row_counter 		= 0
+  cooccurrences, row_counter = {},0
 
   # Row of pairs [[Company, Company],[Company, Company]]
   for row in pair_array	
@@ -53,21 +52,20 @@ pair_array = combinations_of(occurrences)
 
 	# Single Pair [Company, Company]
 	for pair in pair_array["row_#{row_counter}"]  	
-	  times 		  = 0
-	  inner_counter  = 0
-	  
-      # Checks PAIR against occurrences against every ROW
+	  times, inner_counter = 0,0
+
+    # Checks PAIR against occurrences against every ROW
 	  for row in pair_array
 		inner_counter += 1
-		# Ticker for each time pair comes up
-		if pair_array["row_#{inner_counter}"].include? pair 
-			times += 1
-		end
+  		# Ticker for each time pair comes up
+  		if pair_array["row_#{inner_counter}"].include? pair 
+  			times += 1
+  		end
 	  end
-	    # Pushes pair and times co-occurring to cooccurrences array.
+	  # Pushes pair and times co-occurring to cooccurrences array.
 	  cooccurrences.store(pair, times) 
 	end
-  end
+end
 ### 
 
 results = check_n_against(cooccurrences, n)
@@ -86,6 +84,6 @@ if !ARGV[1].nil?
 	end
 end
 
-# ***					***
+# ***					          ***
 # ***  	END OF ACTION   ***
-# ***					***
+# ***					          ***
