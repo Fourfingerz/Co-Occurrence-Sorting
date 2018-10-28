@@ -1,7 +1,3 @@
-# ***					            ***
-# *** HERE LIES FUNCTIONS ***
-# *** 					          ***
-
 # Creates a hash of all possible company pairs, generates all possible PAIRS.
 def combinations_of(input)
   pair_combinations, i = {},0
@@ -21,10 +17,6 @@ def check_n_against(input, n)
   trimmed_pairs = sorted_pairs.delete_if{|i| i.is_a? Integer}
   return trimmed_pairs
 end	
-
-# ***					           ***
-# *** ACTION STARTS HERE ***
-# *** 					         ***
 
 # Checks file arguments in command line, if none, accepts stdin from terminal.
 # HINT: End terminal input with CTRL+D
@@ -83,7 +75,3 @@ if !ARGV[1].nil?
 	  f.puts output
 	end
 end
-
-# ***					          ***
-# ***  	END OF ACTION   ***
-# ***					          ***
